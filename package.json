@@ -1,0 +1,31 @@
+{
+  "name": "golb",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npm run compile && node scripts/run-server.js",
+    "compile": "npm run compile:clear && npm run compile:build",
+    "compile:clear": "rimraf dist",
+    "compile:build": "babel ./src --out-dir dist",
+    "prepublish": "NODE_ENV=production npm run compile"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "express": "^4.15.3",
+    "golb-rest-api": "0.0.13",
+    "golb-web-ui": "0.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-regenerator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "rimraf": "^2.6.1"
+  }
+}
