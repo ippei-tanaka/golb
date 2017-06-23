@@ -20,19 +20,33 @@ const start = async ({
     publicApiRoot = "/public-api",
 
     adminRoot = "/admin",
-    publicRoot = "/"
+    publicRoot = "/",
+
+    adminEmail = "change@myemail.com",
+    adminPassword = "changepassword",
+    adminDisplayName = "Admin",
+    adminSlug = "admin"
 } = {}) =>
 {
     if (!app)
     {
         app = express();
 
-        app.use(adminApiRoot, new AdminRestApiApp({
+        const adminRestApiApp = new AdminRestApiApp({
             sessionSecret,
             dbName,
             dbPort,
             dbHost
-        }));
+        });
+
+        app.use(adminApiRoot, adminRestApiApp);
+
+        await adminRestApiApp.insertUser({
+            email: adminEmail,
+            password: adminPassword,
+            display_name: adminDisplayName,
+            slug: adminSlug
+        });
 
         app.use(publicApiRoot, new PublicRestApiApp({
             dbName,
