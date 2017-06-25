@@ -24,7 +24,15 @@ const start = async ({
     adminEmail = "change@myemail.com",
     adminPassword = "changepassword",
     adminDisplayName = "Admin",
-    adminSlug = "admin"
+    adminSlug = "admin",
+
+    adminApiHostname = webHost,
+    adminApiPort = webPort,
+    adminApiBasename = adminApiRoot,
+
+    publicApiHostname = webHost,
+    publicApiPort = webPort,
+    publicApiBasename = publicApiRoot
 } = {}) =>
 {
     if (!app)
@@ -55,25 +63,22 @@ const start = async ({
 
         app.use(adminRoot, new AdminUiApp({
             adminRoot,
-            adminApiHostname: webHost,
-            adminApiPort: webPort,
-            adminApiBasename: adminApiRoot
+            adminApiHostname,
+            adminApiPort,
+            adminApiBasename
         }));
 
         app.use(publicRoot, new PublicUiApp({
-            publicApiHostname: webHost,
-            publicApiPort: webPort,
-            publicApiBasename: publicApiRoot
+            publicApiHostname,
+            publicApiPort,
+            publicApiBasename
         }));
     }
 
     if (!server)
     {
         server = await app.listen(webPort, webHost, error => { if (error) throw error; });
-
-        console.log("\nThe web server has stated.");
-        console.log(`http://${webHost}:${webPort}${adminRoot} (Admin Page)`);
-        console.log(`http://${webHost}:${webPort}${publicRoot} (Public Page)`);
+        console.log(`\nThe web server has stated. It's listening the port ${webPort}`);
     }
 };
 

@@ -36,21 +36,27 @@ Start the Golb web server. The method takes an object as an argument and returns
 
 You can pass parameters below as attributes of the config object:
 
-| param name       | default              |
-|------------------|----------------------|
-| webPort          | 80                   |
-| webHost          | "localhost"          |
-| dbName           | "glob"               |
-| dbPort           | 27017                |
-| dbHost           | "localhost"          |
-| adminApiRoot     | "/admin-api"         |
-| publicApiRoot    | "/public-api"        |
-| adminRoot        | "/admin"             |
-| publicRoot       | "/"                  |
-| adminEmail       | "change@myemail.com" |
-| adminPassword    | "changepassword"     |
-| adminDisplayName | "Admin"              |
-| adminSlug        | "admin"              |
+| param name        | default                       |
+|-------------------|-------------------------------|
+| webPort           | 80                            |
+| webHost           | "localhost"                   |
+| dbName            | "glob"                        |
+| dbPort            | 27017                         |
+| dbHost            | "localhost"                   |
+| adminApiRoot      | "/admin-api"                  |
+| publicApiRoot     | "/public-api"                 |
+| adminRoot         | "/admin"                      |
+| publicRoot        | "/"                           |
+| adminEmail        | "change@myemail.com"          |
+| adminPassword     | "changepassword"              |
+| adminDisplayName  | "Admin"                       |
+| adminSlug         | "admin"                       |
+| adminApiHostname  | the value of webHost          |
+| adminApiPort      | the value of webPort          |
+| adminApiBasename  | the value of adminApiRoot     |
+| publicApiHostname | the value of webHost          |
+| publicApiPort     | the value of webPort          |
+| publicApiBasename | the value of publicApiRoot    |
 
 ### golb.stop()
 
