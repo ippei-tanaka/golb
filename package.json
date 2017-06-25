@@ -1,6 +1,6 @@
 {
   "name": "golb",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -28,8 +28,5 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "rimraf": "^2.6.1"
-  },
-  "engines": {
-    "node": ">=6.11.0"
   }
 }

@@ -1,7 +1,6 @@
 import {AdminApiApp as AdminRestApiApp, PublicApiApp as PublicRestApiApp} from 'golb-rest-api';
 import {AdminServerApp as AdminUiApp, PublicServerApp as PublicUiApp} from 'golb-web-ui';
 import express from 'express';
-import {URL} from 'url';
 
 let server;
 let app;
@@ -72,14 +71,9 @@ const start = async ({
     {
         server = await app.listen(webPort, webHost, error => { if (error) throw error; });
 
-        const url = new URL(`http://${webHost}:${webPort}`);
-
         console.log("\nThe web server has stated.");
-
-        url.pathname = adminRoot;
-        console.log(`${url.toString()} (Admin Page)`);
-        url.pathname = publicRoot;
-        console.log(`${url.toString()} (Public Page)`);
+        console.log(`http://${webHost}:${webPort}${adminRoot} (Admin Page)`);
+        console.log(`http://${webHost}:${webPort}${publicRoot} (Public Page)`);
     }
 };
 
