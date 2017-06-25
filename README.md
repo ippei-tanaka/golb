@@ -15,7 +15,7 @@ Create a javascript file like:
 ```js
 // index.js
 
-const golb = require('../');
+const golb = require('golb');
 
 const config = {};
 
