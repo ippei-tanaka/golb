@@ -26,6 +26,7 @@ const start = async ({
     adminDisplayName = "Admin",
     adminSlug = "admin",
 
+    adminApiProtocol = "http",
     adminApiHostname = webHost,
     adminApiPort = webPort,
     adminApiBasename = adminApiRoot,
@@ -63,6 +64,7 @@ const start = async ({
 
         app.use(adminRoot, new AdminUiApp({
             adminRoot,
+            adminApiProtocol,
             adminApiHostname,
             adminApiPort,
             adminApiBasename
